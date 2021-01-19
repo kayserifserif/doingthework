@@ -13,7 +13,7 @@ body {
 
 body {
   color: #555;
-  font-family: serif;
+  font-family: "Arimo", sans-serif;
 }
 
 a {
@@ -31,6 +31,7 @@ div > p:first-child {
   grid-template-columns: 50% 50%;
   grid-template-rows: 1fr;
   margin: 2rem 4rem;
+  color: #71a9dd;
 }
 
 .header p {
@@ -44,10 +45,11 @@ div > p:first-child {
 
 .title::after {
   content: "";
-  width: 38vw;
+  width: 80%;
   margin-left: 1em;
+  margin-right: 1em;
   height: 1px;
-  background-color: black;
+  background-color: currentcolor;
   transform: translate(0, -50%);
 }
 
@@ -58,8 +60,9 @@ div > p:first-child {
 }
 
 .prompt {
+  color: #71a9dd;
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 0;
 }
 
@@ -73,12 +76,11 @@ div > p:first-child {
   resize: none;
   overflow: hidden;
   min-height: 50px;
-  font-family: serif;
+  font-family: "Arimo", sans-serif;
   color: currentcolor;
 }
 
 .why {
-  font-family: "Work Sans", sans-serif;
   color: #71a9dd;
 }
 
