@@ -3,7 +3,16 @@ const journal = document.getElementById("journal");
 // array of prompts to randomly choose from
 const prompts = [
   "Black lives matter",
-  "Abolish the police"
+  "Abolish the police",
+  "Voting is a civic duty",
+  "Trans lives matter",
+  "Healthcare is a human right",
+  "Climate change is real and urgent",
+  "White supremacy is institutionalised",
+  "Each person has privilege",
+  "Gender is a social construct",
+  "Gender norms are harmful",
+  "Language and labels are important"
 ];
 
 const initialQA = () => {
