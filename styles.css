@@ -28,11 +28,18 @@ div > p:first-child {
 
 .header {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr;
-  margin: 2rem 4rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  margin: 2rem;
   color: #71a9dd;
 }
+  @media (min-width: 800px) {
+    .header {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 1fr;
+      margin: 2rem 4rem;
+    }
+  }
 
 .header p {
   margin: 0;
@@ -43,21 +50,28 @@ div > p:first-child {
   align-items: center;
 }
 
-.title::after {
-  content: "";
-  width: 80%;
-  margin-left: 1em;
-  margin-right: 1em;
-  height: 1px;
-  background-color: currentcolor;
-  transform: translate(0, -50%);
+@media (min-width: 800px) {
+  .title::after {
+    content: "";
+    width: 80%;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 1px;
+    background-color: currentcolor;
+    transform: translate(0, -50%);
+  }
 }
 
 /* start */
 
 .start {
-  margin: 4rem;
+  margin: 2rem;
 }
+  @media (min-width: 800px) {
+    .start {
+      margin: 4rem;
+    }
+  }
 
 .prompt {
   color: #71a9dd;
@@ -69,14 +83,19 @@ div > p:first-child {
 /* journal */
 
 .journal {
-  margin: 4rem;
+  margin: 2rem;
   max-width: 80ch;
 }
+  @media (min-width: 800px) {
+    .journal {
+      margin: 4rem;
+    }   
+  }
 
 .answer_input {
   resize: none;
   overflow: hidden;
-  min-height: 50px;
+  min-height: 1.5em;
   font-family: "Arimo", sans-serif;
   color: currentcolor;
 }
