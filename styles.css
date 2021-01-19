@@ -70,7 +70,9 @@ div > p:first-child {
 }
 
 .answer_input {
-  font-size: 1em;
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
   font-family: serif;
   color: currentcolor;
 }
@@ -78,6 +80,9 @@ div > p:first-child {
 .why {
   font-family: "Work Sans", sans-serif;
   color: #71a9dd;
+}
+
+.animated {
   opacity: 0;
   transform: translate(0, 50%);
   transition: opacity 1s, transform 1s;

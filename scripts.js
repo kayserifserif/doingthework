@@ -9,7 +9,7 @@ const prompts = [
 const initialQA = () => {
   let new_why = document.createElement("p");
   new_why.innerText = "Why?";
-  new_why.classList.add("why");
+  new_why.classList.add("why", "animated");
   journal.appendChild(new_why);
   
   setTimeout(() => {
@@ -23,26 +23,40 @@ const initialQA = () => {
 }
 
 const newQA = () => {
+  const INPUT_COLS = "80";
+  const INPUT_ROWS = "1";
+
   let new_qa = document.createElement("div");
   new_qa.classList.add("qa");
     let new_form = document.createElement("form");
     new_form.classList.add("answer");
     new_form.addEventListener("submit", handleSubmit);
-      let new_input = document.createElement("input");
-      new_input.type = "text";
-      new_input.classList.add("answer_input");
+      let new_input = document.createElement("textarea");
+      new_input.classList.add("answer_input", "animated");
+      new_input.cols = INPUT_COLS;
+      new_input.rows = INPUT_ROWS;
+      new_input.wrap = "off";
+      new_input.addEventListener("input", handleInput);
     new_form.appendChild(new_input);
     let new_why = document.createElement("p");
     new_why.innerText = "Why?";
-    new_why.classList.add("why");
+    new_why.classList.add("why", "animated");
   new_qa.appendChild(new_form);
   new_qa.appendChild(new_why);
+  journal.appendChild(new_qa);
 
   // transition
   setTimeout(() => {
-    journal.appendChild(new_qa);
+    new_input.classList.add("visible");
     new_input.focus();
-  }, 1000);
+  }, 350);
+}
+
+const handleInput = (event) => {
+  event.target.style.height = event.target.scrollHeight + "px";
+  if (event.inputType === "insertLineBreak") {
+    event.target.parentNode.requestSubmit();
+  }
 }
 
 // finish answer and go to the next
