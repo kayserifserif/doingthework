@@ -17,7 +17,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  color: #71a9dd;
 }
 
 div > p:first-child {
@@ -70,6 +70,7 @@ div > p:first-child {
 
 .journal {
   margin: 4rem;
+  max-width: 80ch;
 }
 
 .answer_input {
@@ -93,4 +94,12 @@ div > p:first-child {
 .visible {
   opacity: 1;
   transform: translate(0, 0);
+}
+
+/* about */
+
+.about {
+  margin: 4rem;
+  max-width: 80ch;
+  line-height: 1.5;
 }
