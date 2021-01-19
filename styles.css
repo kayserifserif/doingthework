@@ -1,0 +1,89 @@
+/* global */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #555;
+  font-family: serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+div > p:first-child {
+  margin-top: 0;
+}
+
+/* header */
+
+.header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr;
+  margin: 2rem 4rem;
+}
+
+.header p {
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title::after {
+  content: "";
+  width: 38vw;
+  margin-left: 1em;
+  height: 1px;
+  background-color: black;
+  transform: translate(0, -50%);
+}
+
+/* start */
+
+.start {
+  margin: 4rem;
+}
+
+.prompt {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+/* journal */
+
+.journal {
+  margin: 4rem;
+}
+
+.answer_input {
+  font-size: 1em;
+  font-family: serif;
+  color: currentcolor;
+}
+
+.why {
+  font-family: "Work Sans", sans-serif;
+  color: #71a9dd;
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: opacity 1s, transform 1s;
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
