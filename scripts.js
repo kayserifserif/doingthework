@@ -17,10 +17,27 @@ const prompts = [
   "Language and labels are important"
 ];
 
+const whys = [
+  "Why?",
+  "Why do you say that?",
+  "Can you tell me more?",
+  "Can you be more specific about that?",
+  "Can you think of any examples?",
+  "How does that make you feel?",
+
+];
+
 const initialQA = () => {
   let new_why = document.createElement("p");
-  new_why.innerText = "Why?";
   new_why.classList.add("why", "animated");
+    let why_span = document.createElement("span");
+    why_span.innerText = whys[0];
+    new_why.appendChild(why_span);
+    let why_refresh = document.createElement("button");
+    why_refresh.classList.add("why_refresh");
+    why_refresh.innerText = "⟳";
+    why_refresh.addEventListener("click", refreshWhy);
+    new_why.appendChild(why_refresh);
   journal.appendChild(new_why);
   
   setTimeout(() => {
@@ -51,8 +68,15 @@ const newQA = () => {
       new_input.addEventListener("input", handleInput);
     new_form.appendChild(new_input);
     let new_why = document.createElement("p");
-    new_why.innerText = "Why?";
     new_why.classList.add("why", "animated");
+      let why_span = document.createElement("span");
+      why_span.innerText = whys[0];
+      new_why.appendChild(why_span);
+      let why_refresh = document.createElement("button");
+      why_refresh.classList.add("why_refresh");
+      why_refresh.innerText = "⟳";
+      why_refresh.addEventListener("click", refreshWhy);
+      new_why.appendChild(why_refresh);
   new_qa.appendChild(new_form);
   new_qa.appendChild(new_why);
   journal.appendChild(new_qa);
@@ -62,6 +86,11 @@ const newQA = () => {
     new_input.classList.add("visible");
     new_input.focus();
   }, 350);
+}
+
+const refreshWhy = (event) => {
+  let why_span = event.target.parentNode.childNodes[0];
+  why_span.innerText = whys[Math.floor(Math.random() * whys.length)];
 }
 
 const handleInput = (event) => {

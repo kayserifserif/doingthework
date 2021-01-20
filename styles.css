@@ -111,6 +111,12 @@ div > p:first-child {
   color: #71a9dd;
 }
 
+.why_refresh {
+  font-size: 1em;
+  margin-left: .5em;
+  padding: 0;
+}
+
 .animated {
   opacity: 0;
   transform: translate(0, 50%);
