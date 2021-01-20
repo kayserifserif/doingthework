@@ -8,7 +8,7 @@
   <link href="http://fonts.cdnfonts.com/css/arimo" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
+  <header class="header" role="banner">
     <p class="title"><a href="/">The Why Tool</a></p>
     <p>A self-reflection tool for questioning and strengthening your beliefs. <a href="/about">Read more</a></p>
   </header>
@@ -17,16 +17,18 @@
       <p>Generated prompt:</p>
       <p class="prompt" id="prompt">
         <span id="prompt_span" class="prompt_span"></span>
-        <button id="prompt_refresh" class="prompt_refresh button_icon button">⟳</button>
-        <button id="prompt_custom" class="prompt_custom button_text button">custom</button>
+        <button id="prompt_refresh" class="prompt_refresh button_icon button" type="button">⟳</button>
+        <button id="prompt_custom" class="prompt_custom button_text button" type="button">custom</button>
       </p>
       <form class="stance_form" id="stance_form">
-        <input type="radio" name="stance_input" id="stance_yes" class="stance_input" />
-        <label for="stance_yes">Yes, agree</label>
-        <input type="radio" name="stance_input" id="stance_no" class="stance_input" />
-        <label for="stance_no">No, don't agree</label>
-        <input type="radio" name="stance_input" id="stance_unsure" class="stance_input" />
-        <label for="stance_unsure">I'm not sure</label>
+        <fieldset class="stance_fieldset">
+          <input type="radio" name="stance_input" id="stance_yes" class="stance_input" />
+          <label for="stance_yes">Yes, agree</label>
+          <input type="radio" name="stance_input" id="stance_no" class="stance_input" />
+          <label for="stance_no">No, don't agree</label>
+          <input type="radio" name="stance_input" id="stance_unsure" class="stance_input" />
+          <label for="stance_unsure">I'm not sure</label>
+        </fieldset>
       </form>
     </div>
     </form>

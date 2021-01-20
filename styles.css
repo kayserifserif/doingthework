@@ -17,7 +17,7 @@ body {
 }
 
 a {
-  color: #71a9dd;
+  color: #007dba;
 }
 
 div > p:first-child {
@@ -50,7 +50,7 @@ div > p:first-child {
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   margin: 2rem;
-  color: #71a9dd;
+  color: #007dba;
 }
   @media (min-width: 800px) {
     .header {
@@ -93,7 +93,7 @@ div > p:first-child {
   }
 
 .prompt {
-  color: #71a9dd;
+  color: #007dba;
   font-size: 2em;
   font-weight: 700;
   margin-top: 0;
@@ -105,6 +105,11 @@ div > p:first-child {
 
 .prompt_span > br {
   display: none;
+}
+
+.stance_fieldset {
+  width: max-content;
+  border: 0;
 }
 
 /* journal */
@@ -131,11 +136,11 @@ div > p:first-child {
 }
 
 .answer_input:focus {
-  border-bottom: 1.5px solid #71a9dd;
+  border-bottom: 1.5px solid #007dba;
 }
 
 .why {
-  color: #71a9dd;
+  color: #007dba;
 }
 
 .animated {

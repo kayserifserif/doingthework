@@ -35,7 +35,6 @@ const newPrompt = () => {
 
 const customPrompt = () => {
   let prompt_span = document.getElementById("prompt_span");
-  prompt_span.innerText = "";
   prompt_span.contentEditable = true;
   prompt_span.focus();
   prompt_span.addEventListener("input", (event) => {
@@ -55,6 +54,7 @@ const initialQA = () => {
     why_span.innerText = whys[0];
     new_why.appendChild(why_span);
     let why_refresh = document.createElement("button");
+    why_refresh.type = "button";
     why_refresh.classList.add("why_refresh", "button_icon", "button");
     why_refresh.innerText = "⟳";
     why_refresh.addEventListener("click", refreshWhy);
@@ -94,6 +94,7 @@ const newQA = () => {
       why_span.innerText = whys[0];
       new_why.appendChild(why_span);
       let why_refresh = document.createElement("button");
+      why_refresh.type = "button";
       why_refresh.classList.add("why_refresh", "button_icon", "button");
       why_refresh.innerText = "⟳";
       why_refresh.addEventListener("click", refreshWhy);
