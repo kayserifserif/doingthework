@@ -15,7 +15,11 @@
   <main>
     <div class="start">
       <p>Generated prompt:</p>
-      <p class="prompt" id="prompt"></p>
+      <p class="prompt" id="prompt">
+        <span id="prompt_span" class="prompt_span"></span>
+        <button id="prompt_refresh" class="prompt_refresh button_icon button">⟳</button>
+        <button id="prompt_custom" class="prompt_custom button_text button">custom</button>
+      </p>
       <form class="stance_form" id="stance_form">
         <input type="radio" name="stance_input" id="stance_yes" class="stance_input" />
         <label for="stance_yes">Yes, agree</label>

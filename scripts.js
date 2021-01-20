@@ -1,5 +1,6 @@
 // https://www.pewresearch.org/politics/2020/12/17/voters-say-those-on-the-other-side-dont-get-them-heres-what-they-want-them-to-know/
 
+const prompt = document.getElementById("prompt");
 const journal = document.getElementById("journal");
 
 // array of prompts to randomly choose from
@@ -27,6 +28,26 @@ const whys = [
 
 ];
 
+const newPrompt = () => {
+  let prompt_span = document.getElementById("prompt_span");
+  prompt_span.textContent = prompts[Math.floor(Math.random() * prompts.length)];
+}
+
+const customPrompt = () => {
+  let prompt_span = document.getElementById("prompt_span");
+  prompt_span.innerText = "";
+  prompt_span.contentEditable = true;
+  prompt_span.focus();
+  prompt_span.addEventListener("input", (event) => {
+    console.log(event);
+    if (event.inputType === "insertParagraph") {
+      prompt_span.contentEditable = false;
+      prompt_span.blur();
+      return false;
+    }
+  });
+}
+
 const initialQA = () => {
   let new_why = document.createElement("p");
   new_why.classList.add("why", "animated");
@@ -34,7 +55,7 @@ const initialQA = () => {
     why_span.innerText = whys[0];
     new_why.appendChild(why_span);
     let why_refresh = document.createElement("button");
-    why_refresh.classList.add("why_refresh");
+    why_refresh.classList.add("why_refresh", "button_icon", "button");
     why_refresh.innerText = "⟳";
     why_refresh.addEventListener("click", refreshWhy);
     new_why.appendChild(why_refresh);
@@ -73,7 +94,7 @@ const newQA = () => {
       why_span.innerText = whys[0];
       new_why.appendChild(why_span);
       let why_refresh = document.createElement("button");
-      why_refresh.classList.add("why_refresh");
+      why_refresh.classList.add("why_refresh", "button_icon", "button");
       why_refresh.innerText = "⟳";
       why_refresh.addEventListener("click", refreshWhy);
       new_why.appendChild(why_refresh);
@@ -119,7 +140,9 @@ const handleSubmit = (event) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   // random prompt
-  document.getElementById("prompt").innerText = prompts[Math.floor(Math.random() * prompts.length)];
+  newPrompt();
+  document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
+  document.getElementById("prompt_custom").addEventListener("click", customPrompt);
 
   // initial q&a
   document.getElementById("stance_form").reset();

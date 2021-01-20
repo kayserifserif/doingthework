@@ -24,6 +24,25 @@ div > p:first-child {
   margin-top: 0;
 }
 
+.button {
+  margin-left: .5em;
+  padding: 0;
+  border: none;
+  background: none;
+  opacity: .8;
+  cursor: pointer;
+  color: #555;
+  line-height: 1;
+}
+
+.button_icon {
+  font-size: 1em;
+}
+
+.button_text {
+  font-size: .5em;
+}
+
 /* header */
 
 .header {
@@ -80,6 +99,14 @@ div > p:first-child {
   margin-top: 0;
 }
 
+.prompt_span > * {
+  display: inline;
+}
+
+.prompt_span > br {
+  display: none;
+}
+
 /* journal */
 
 .journal {
@@ -109,12 +136,6 @@ div > p:first-child {
 
 .why {
   color: #71a9dd;
-}
-
-.why_refresh {
-  font-size: 1em;
-  margin-left: .5em;
-  padding: 0;
 }
 
 .animated {
