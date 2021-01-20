@@ -98,6 +98,13 @@ div > p:first-child {
   min-height: 1.5em;
   font-family: "Arimo", sans-serif;
   color: currentcolor;
+  border: none;
+  border-bottom: 1px solid currentcolor;
+  outline: none;
+}
+
+.answer_input:focus {
+  border-bottom: 1.5px solid #71a9dd;
 }
 
 .why {
