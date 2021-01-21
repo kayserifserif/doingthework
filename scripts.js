@@ -1,6 +1,7 @@
 // https://www.pewresearch.org/politics/2020/12/17/voters-say-those-on-the-other-side-dont-get-them-heres-what-they-want-them-to-know/
 
 const prompt = document.getElementById("prompt");
+const listener_form = document.getElementById("listener_form");
 const log = document.getElementById("log");
 
 // array of prompts to randomly choose from
@@ -34,6 +35,7 @@ const resetStance = () => {
 }
 
 const resetLog = () => {
+  listener_form.classList.remove("visible");
   log.innerHTML = "";
   document.getElementById("clear").classList.remove("visible");
 }
@@ -74,6 +76,7 @@ const initialQA = () => {
   log.appendChild(new_why);
   
   setTimeout(() => {
+    listener_form.classList.add("visible");
     new_why.classList.add("visible");
     newQA();
     document.getElementById("clear").classList.add("visible");
