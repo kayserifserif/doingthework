@@ -20,17 +20,17 @@ const prompts = [
 ];
 
 const whys = [
-  "Why?",
+  "How does that make you feel?",
   "Why do you say that?",
-  "Can you tell me more?",
+  "Can you say more?",
   "Can you be more specific about that?",
   "Can you think of any examples?",
-  "How does that make you feel?",
-
+  "What do you think about that?",
+  "What do you have questions about?"
 ];
 
 const resetStance = () => {
-  document.getElementById("stance_form").reset();
+  // document.getElementById("stance_form").reset();
   resetLog();
 }
 
@@ -44,6 +44,7 @@ const newPrompt = () => {
   let prompt_span = document.getElementById("prompt_span");
   prompt_span.textContent = prompts[Math.floor(Math.random() * prompts.length)];
   resetStance();
+  initialQA();
 }
 
 const customPrompt = () => {
@@ -103,7 +104,7 @@ const newQA = () => {
     let new_why = document.createElement("p");
     new_why.classList.add("why", "animated");
       let why_span = document.createElement("span");
-      why_span.innerText = whys[0];
+      why_span.innerText = whys[Math.floor(Math.random() * whys.length)];
       new_why.appendChild(why_span);
       let why_refresh = document.createElement("button");
       why_refresh.type = "button";
@@ -130,7 +131,11 @@ const refreshWhy = (event) => {
 const handleInput = (event) => {
   event.target.style.height = event.target.scrollHeight + "px";
   if (event.inputType === "insertLineBreak") {
-    event.target.parentNode.requestSubmit();
+    if (event.target.value.trim() === "") {
+      event.target.value = "";
+    } else {
+      event.target.parentNode.requestSubmit();
+    }
   }
 }
 
@@ -158,10 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("prompt_custom").addEventListener("click", customPrompt);
 
   // initial q&a
-  document.getElementById("stance_form").reset();
-  for (let input of document.getElementsByClassName("stance_input")) {
-    input.addEventListener("change", initialQA);
-  }
+  // document.getElementById("stance_form").reset();
+  // for (let input of document.getElementsByClassName("stance_input")) {
+  //   input.addEventListener("change", initialQA);
+  // }
   document.getElementById("clear").addEventListener("click", initialQA);
 });
 
