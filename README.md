@@ -17,3 +17,7 @@ Inspired partly by [ELIZA](https://en.wikipedia.org/wiki/ELIZA).
 ```
 python -m http.server
 ```
+
+## Contribute
+
+Prompt additions very welcome (pending moderation)! Fork the repo, edit the prompts.txt file (either directly on GitHub or on your own system), then submit a pull request. ([Tutorial on forking projects](https://guides.github.com/activities/forking/))
