@@ -1,6 +1,6 @@
 // https://www.pewresearch.org/politics/2020/12/17/voters-say-those-on-the-other-side-dont-get-them-heres-what-they-want-them-to-know/
 
-const prompt = document.getElementById("prompt");
+const prompt_span = document.getElementById("prompt_span");
 const listener_form = document.getElementById("listener_form");
 const log = document.getElementById("log");
 
@@ -16,10 +16,11 @@ const prompts = [
   "Each person has privilege",
   "Gender is a social construct",
   "Gender norms are harmful",
-  "Language and labels are important"
+  "Language and labels are important",
+
 ];
 
-const whys = [
+const questions = [
   "How does that make you feel?",
   "Why do you say that?",
   "Can you say more?",
@@ -29,68 +30,57 @@ const whys = [
   "What do you have questions about?"
 ];
 
-const resetStance = () => {
-  // document.getElementById("stance_form").reset();
-  resetLog();
-}
-
-const resetLog = () => {
-  listener_form.classList.remove("visible");
-  log.innerHTML = "";
-  document.getElementById("clear").classList.remove("visible");
+const clearLog = (event) => {
+  newQA(questions[0]);
 }
 
 const newPrompt = () => {
   let prompt_span = document.getElementById("prompt_span");
   prompt_span.textContent = prompts[Math.floor(Math.random() * prompts.length)];
-  resetStance();
-  initialQA();
+  newQA(questions[0]);
 }
 
 const customPrompt = () => {
   let prompt_span = document.getElementById("prompt_span");
   prompt_span.contentEditable = true;
-  prompt_span.focus();
+  let range = document.createRange();
+  range.selectNodeContents(prompt_span);
+  let sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
   prompt_span.addEventListener("input", (event) => {
     if (event.inputType === "insertParagraph") {
       prompt_span.contentEditable = false;
       prompt_span.blur();
-      resetStance();
+      newQA(questions[0]);
       return false;
     }
   });
 }
 
-const initialQA = () => {
-  resetLog();
-  let new_why = document.createElement("p");
-  new_why.classList.add("why", "animated");
-    let why_span = document.createElement("span");
-    why_span.innerText = whys[0];
-    new_why.appendChild(why_span);
-    let why_refresh = document.createElement("button");
-    why_refresh.type = "button";
-    why_refresh.classList.add("why_refresh", "button_icon", "button");
-    why_refresh.innerText = "⟳";
-    why_refresh.addEventListener("click", refreshWhy);
-    new_why.appendChild(why_refresh);
-  log.appendChild(new_why);
-  
-  setTimeout(() => {
-    listener_form.classList.add("visible");
-    new_why.classList.add("visible");
-    newQA();
-    document.getElementById("clear").classList.add("visible");
-  }, 10);
-}
+const newQA = (question) => {
+  if (question) {
+    log.innerHTML = "";
+  } else {
+    question = questions[Math.floor(Math.random() * questions.length)];
+  }
 
-const newQA = () => {
-  // const INPUT_COLS = "80";
   const INPUT_COLS = window.innerWidth / 25 + 10;
   const INPUT_ROWS = "1";
 
   let new_qa = document.createElement("div");
   new_qa.classList.add("qa");
+    let new_question = document.createElement("p");
+      new_question.classList.add("why", "animated");
+        let why_span = document.createElement("span");
+        why_span.innerText = question;
+        new_question.appendChild(why_span);
+        let why_refresh = document.createElement("button");
+        why_refresh.type = "button";
+        why_refresh.classList.add("why_refresh", "button_icon", "button");
+        why_refresh.innerText = "⟳";
+        why_refresh.addEventListener("click", refreshWhy);
+        new_question.appendChild(why_refresh);
     let new_form = document.createElement("form");
     new_form.classList.add("answer");
     new_form.addEventListener("submit", handleSubmit);
@@ -101,31 +91,23 @@ const newQA = () => {
       // new_input.wrap = "off";
       new_input.addEventListener("input", handleInput);
     new_form.appendChild(new_input);
-    let new_why = document.createElement("p");
-    new_why.classList.add("why", "animated");
-      let why_span = document.createElement("span");
-      why_span.innerText = whys[Math.floor(Math.random() * whys.length)];
-      new_why.appendChild(why_span);
-      let why_refresh = document.createElement("button");
-      why_refresh.type = "button";
-      why_refresh.classList.add("why_refresh", "button_icon", "button");
-      why_refresh.innerText = "⟳";
-      why_refresh.addEventListener("click", refreshWhy);
-      new_why.appendChild(why_refresh);
+  new_qa.appendChild(new_question);
   new_qa.appendChild(new_form);
-  new_qa.appendChild(new_why);
   log.appendChild(new_qa);
 
   // transition
   setTimeout(() => {
-    new_input.classList.add("visible");
-    new_input.focus();
-  }, 350);
+    new_question.classList.add("visible");
+    setTimeout(() => {
+      new_input.classList.add("visible");
+      new_input.focus();
+    }, 350);
+  }, 10);
 }
 
 const refreshWhy = (event) => {
   let why_span = event.target.parentNode.childNodes[0];
-  why_span.innerText = whys[Math.floor(Math.random() * whys.length)];
+  why_span.innerText = questions[Math.floor(Math.random() * questions.length)];
 }
 
 const handleInput = (event) => {
@@ -149,25 +131,16 @@ const handleSubmit = (event) => {
   input_p.innerText = input.value;
   input.parentNode.insertBefore(input_p, input);
   input.parentNode.removeChild(input);
-  let why = event.target.nextElementSibling;
-  why.classList.add("visible");
 
   // create new
   newQA();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // random prompt
   newPrompt();
   document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
   document.getElementById("prompt_custom").addEventListener("click", customPrompt);
-
-  // initial q&a
-  // document.getElementById("stance_form").reset();
-  // for (let input of document.getElementsByClassName("stance_input")) {
-  //   input.addEventListener("change", initialQA);
-  // }
-  document.getElementById("clear").addEventListener("click", initialQA);
+  document.getElementById("clear").addEventListener("click", clearLog);
 });
 
 window.addEventListener("resize", () => {

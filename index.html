@@ -15,7 +15,7 @@
   <main>
     <div class="start">
       <p>Generated prompt:</p>
-      <p class="prompt" id="prompt">
+      <p class="prompt">
         <span id="prompt_span" class="prompt_span"></span>
         <button id="prompt_refresh" class="prompt_refresh button_icon button" type="button">⟳</button>
         <button id="prompt_custom" class="prompt_custom button_text button" type="button">custom</button>
@@ -31,7 +31,7 @@
         </fieldset>
       </form> -->
     </div>
-    <form class="listener_form animated" id="listener_form">
+    <form class="listener_form animated visible" id="listener_form">
       <label for="listener">optionally, imagine a listener: </label>
       <select name="listener" id="listener" class="listener select">
         <option value=""></option>
@@ -45,7 +45,7 @@
     </form>
     <div class="log" id="log"></div>
     <div>
-      <button id="clear" class="animated button" type="button">clear log</button>
+      <button id="clear" class="animated visible button" type="button">clear log</button>
     </div>
   </main>
   <script src="scripts.js"></script>
