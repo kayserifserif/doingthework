@@ -1,7 +1,7 @@
 // https://www.pewresearch.org/politics/2020/12/17/voters-say-those-on-the-other-side-dont-get-them-heres-what-they-want-them-to-know/
 
 const prompt = document.getElementById("prompt");
-const journal = document.getElementById("journal");
+const log = document.getElementById("log");
 
 // array of prompts to randomly choose from
 const prompts = [
@@ -28,9 +28,20 @@ const whys = [
 
 ];
 
+const resetStance = () => {
+  document.getElementById("stance_form").reset();
+  resetLog();
+}
+
+const resetLog = () => {
+  log.innerHTML = "";
+  document.getElementById("clear").classList.remove("visible");
+}
+
 const newPrompt = () => {
   let prompt_span = document.getElementById("prompt_span");
   prompt_span.textContent = prompts[Math.floor(Math.random() * prompts.length)];
+  resetStance();
 }
 
 const customPrompt = () => {
@@ -38,16 +49,17 @@ const customPrompt = () => {
   prompt_span.contentEditable = true;
   prompt_span.focus();
   prompt_span.addEventListener("input", (event) => {
-    console.log(event);
     if (event.inputType === "insertParagraph") {
       prompt_span.contentEditable = false;
       prompt_span.blur();
+      resetStance();
       return false;
     }
   });
 }
 
 const initialQA = () => {
+  resetLog();
   let new_why = document.createElement("p");
   new_why.classList.add("why", "animated");
     let why_span = document.createElement("span");
@@ -59,16 +71,13 @@ const initialQA = () => {
     why_refresh.innerText = "⟳";
     why_refresh.addEventListener("click", refreshWhy);
     new_why.appendChild(why_refresh);
-  journal.appendChild(new_why);
+  log.appendChild(new_why);
   
   setTimeout(() => {
     new_why.classList.add("visible");
     newQA();
+    document.getElementById("clear").classList.add("visible");
   }, 10);
-  
-  for (let input of document.getElementsByClassName("stance_input")) {
-    input.removeEventListener("change", initialQA);
-  }
 }
 
 const newQA = () => {
@@ -101,7 +110,7 @@ const newQA = () => {
       new_why.appendChild(why_refresh);
   new_qa.appendChild(new_form);
   new_qa.appendChild(new_why);
-  journal.appendChild(new_qa);
+  log.appendChild(new_qa);
 
   // transition
   setTimeout(() => {
@@ -150,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let input of document.getElementsByClassName("stance_input")) {
     input.addEventListener("change", initialQA);
   }
+  document.getElementById("clear").addEventListener("click", initialQA);
 });
 
 window.addEventListener("resize", () => {

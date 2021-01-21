@@ -43,6 +43,20 @@ div > p:first-child {
   font-size: .5em;
 }
 
+.animated {
+  transition: opacity 1s, transform 1s;
+}
+
+.animated:not(.visible) {
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+
+.animated.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
 /* header */
 
 .header {
@@ -81,16 +95,18 @@ div > p:first-child {
   }
 }
 
-/* start */
+/* main */
 
-.start {
+main > * {
   margin: 2rem;
 }
   @media (min-width: 800px) {
-    .start {
+    main > * {
       margin: 4rem;
     }
   }
+
+/* start */
 
 .prompt {
   color: #007dba;
@@ -112,17 +128,7 @@ div > p:first-child {
   border: 0;
 }
 
-/* journal */
-
-.journal {
-  margin: 2rem;
-  max-width: 80ch;
-}
-  @media (min-width: 800px) {
-    .journal {
-      margin: 4rem;
-    }   
-  }
+/* log */
 
 .answer_input {
   resize: none;
@@ -141,17 +147,6 @@ div > p:first-child {
 
 .why {
   color: #007dba;
-}
-
-.animated {
-  opacity: 0;
-  transform: translate(0, 50%);
-  transition: opacity 1s, transform 1s;
-}
-
-.visible {
-  opacity: 1;
-  transform: translate(0, 0);
 }
 
 /* about */
