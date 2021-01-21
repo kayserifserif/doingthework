@@ -144,10 +144,6 @@ main > * {
 
 /* log */
 
-.listener {
-  /* opacity: .5; */
-}
-
 .answer_input {
   resize: none;
   overflow: hidden;
