@@ -4,24 +4,8 @@ const prompt_span = document.getElementById("prompt_span");
 const listener_form = document.getElementById("listener_form");
 const log = document.getElementById("log");
 
-// array of prompts to randomly choose from
-const prompts = [
-  "Black lives matter",
-  "Abolish the police",
-  "Voting is a civic duty",
-  "Trans lives matter",
-  "Healthcare is a human right",
-  "Climate change is real and urgent",
-  "White supremacy is institutionalised",
-  "Each person has privilege",
-  "Gender is a social construct",
-  "Gender norms are harmful",
-  "Language and labels are important",
-
-];
-
 const questions = [
-  "How does that make you feel?",
+  "How does this make you feel?",
   "Why do you say that?",
   "Can you say more?",
   "Can you be more specific about that?",
@@ -29,6 +13,22 @@ const questions = [
   "What do you think about that?",
   "What do you have questions about?"
 ];
+
+// load prompts from text file
+let prompts;
+fetch("/prompts.txt")
+  .then(response => response.text())
+  .then(text => {
+    prompts = text.split("\n");
+    load();
+  });
+
+const load = () => {
+  document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
+  document.getElementById("prompt_custom").addEventListener("click", customPrompt);
+  document.getElementById("clear").addEventListener("click", clearLog);
+  newPrompt();
+};
 
 const clearLog = (event) => {
   newQA(questions[0]);
@@ -135,13 +135,6 @@ const handleSubmit = (event) => {
   // create new
   newQA();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  newPrompt();
-  document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
-  document.getElementById("prompt_custom").addEventListener("click", customPrompt);
-  document.getElementById("clear").addEventListener("click", clearLog);
-});
 
 window.addEventListener("resize", () => {
   for (let input of document.getElementsByClassName("answer_input")) {
