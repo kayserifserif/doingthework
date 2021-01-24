@@ -1,7 +1,7 @@
 // https://www.pewresearch.org/politics/2020/12/17/voters-say-those-on-the-other-side-dont-get-them-heres-what-they-want-them-to-know/
 
 const prompt_span = document.getElementById("prompt_span");
-const listener_form = document.getElementById("listener_form");
+const listener = document.getElementById("listener");
 const log = document.getElementById("log");
 
 const questions = [
@@ -27,6 +27,7 @@ const load = () => {
   document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
   document.getElementById("prompt_custom").addEventListener("click", customPrompt);
   document.getElementById("clear").addEventListener("click", clearLog);
+  document.getElementById("save").addEventListener("click", save);
   newPrompt();
 };
 
@@ -134,6 +135,53 @@ const handleSubmit = (event) => {
 
   // create new
   newQA();
+}
+
+const save = (event) => {
+  const date = new Date();
+  // formats date as Thu Dec 31 2020
+  let date_str = date.toDateString();
+
+  let log_text = `\
+Journal entry on ${date_str} from https://doingthework.glitch.me\n\n\
+----------\n\
+Generated prompt:\n\
+${prompt_span.textContent}`;
+
+  // notes optional listener value
+  if (listener.value) {
+    let listener_val = listener.value.substring(0, 1).toUpperCase() + listener.value.substring(1);
+    log_text += "\n\nImagined listener:\n" + listener_val;
+  }
+  log_text += "\n----------\n\n";
+
+  // adds q&as if q is a'd
+  let log_strings = [];
+  for (let qa of log.querySelectorAll(".qa")) {
+    let q = qa.querySelector(".why span");
+    let a = qa.querySelector(".answer p");
+    if (a) {
+      log_strings.push(q.textContent + "\n" + a.textContent);
+    }
+  }
+  log_text += log_strings.join("\n\n");
+  let blob = new Blob([log_text], {type: "text/plain;charset=utf-8"});
+  let blob_url = URL.createObjectURL(blob);
+
+  // formats date like 2020-12-31
+  let date_num = date.getFullYear() + "-" +
+    ((date.getMonth() + 1).toString().padStart(2, '0')) + "-" +
+    date.getDate().toString().padStart(2, '0');
+  // formats time like 14-22-01
+  let time_num = date.getHours().toString().padStart(2, '0') + "-" +
+    date.getMinutes().toString().padStart(2, '0') + "-" +
+    date.getSeconds().toString().padStart(2, '0');
+  let a = document.createElement("a");
+  a.href = blob_url;
+  a.download = `doingthework on ${date_num} at ${time_num}.txt`;
+  // clear from memory
+  a.onclick = () => { setTimeout(() => URL.revokeObjectURL(blob_url), 150); }
+  a.click();
 }
 
 window.addEventListener("resize", () => {
