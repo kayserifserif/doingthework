@@ -24,6 +24,7 @@ fetch("/prompts.txt")
   });
 
 const load = () => {
+  // document.body.classList.add()
   document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
   document.getElementById("prompt_custom").addEventListener("click", customPrompt);
   document.getElementById("clear").addEventListener("click", clearLog);
@@ -165,6 +166,7 @@ ${prompt_span.textContent}`;
     }
   }
   log_text += log_strings.join("\n\n");
+  // https://blog.logrocket.com/programmatic-file-downloads-in-the-browser-9a5186298d5c/
   let blob = new Blob([log_text], {type: "text/plain;charset=utf-8"});
   let blob_url = URL.createObjectURL(blob);
 
