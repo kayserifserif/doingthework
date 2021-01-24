@@ -12,7 +12,7 @@ It can be difficult to do the work to untangle the complex feelings and thoughts
 
 Inspired partly by [ELIZA](https://en.wikipedia.org/wiki/ELIZA).
 
-— [Katherine Yang](https://whykatherine.github.io)
+— [Katherine](https://whykatherine.github.io)
 
 ## Setup
 
