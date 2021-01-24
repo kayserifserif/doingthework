@@ -2,30 +2,13 @@
 
 ## About this tool
 
-It can be difficult to do the work to untangle the complex feelings and
-thoughts we have about issues in our society. Sometimes we’re not able
-to organise our thoughts coherently, or we feel upset about things out
-of our control, or we have conflicting inner thoughts that we push away
-because it’s too confusing.
+It can be difficult to do the work to untangle the complex feelings and thoughts we have about issues in our society. When talking to others, the conversation can be unproductive, and when thinking in private, it can be difficult to collect scattered thoughts. This tool hopes to help facilitate that emotional and intellectual work by meeting you where you are in sorting through your thoughts.
 
-I built this tool hoping to facilitate that emotional and intellectual
-work by meeting you where you are. The prompts that come up may be ones
-you agree with, disagree with, or feel conflicted about. The tool isn’t
-intended to promote particular viewpoints (though my own subjectivity
-has led to specific wordings), but rather to help you dig into your own
-beliefs. In addition to helping you question your beliefs, I hope the
-tool can help you strengthen them too. It can serve as a space for you
-to lay out your thoughts on issues you have strong opinions on, which
-you might draw on for conversations with people with differing views.
-The tool doesn’t have to live only on this website – I like to imagine
-it alternatively as a conversation framework or journaling exercise too,
-if you feel so inspired!
+**A suggested guide to using this tool:** A prompt will be generated from a list and you’ll be asked first how it makes you feel. Don’t worry about giving a “right” answer or saying the “wrong” thing – try to identify your immediate feelings and let the nudges from the follow-up questions guide you into digging deeper. If you feel conflicted about it, you can use the space to question your beliefs; if you have strong opinions on it one way or another, you can also use the space to strengthen your beliefs. If you don’t have much to say for a prompt, refresh for another or write in your own – maybe something you’re struggling to talk about or something you might need to have difficult conversations about. Finally, the tool doesn’t have to live only on this website – I like to imagine it alternatively as a conversation framework or journaling exercise too, if you feel so inspired!
 
-**The prompts:** the prompts listed here are very non-methodically assembled by my searching “friendly reminder” on Twitter and writing down common statements, slogans, or stances, or attempting to summarise common opinions in clear, succinct language that’s generalisable for multiple countries or institutions. There are many potential prompts I’ve missed out on, some I’m not sure how to word, and some existing prompts that can probably be worded better. Understanding the many limits with this broad approach, I’ve implemented a “custom” feature that allows you to rewrite prompts or set your own, and I very much welcome (moderated) contributions to the list – please check the [section](#contribute) below! And if you have feedback on how this tool can be improved, please do reach out! This is a tool for learning, and making it is certainly a learning experience for me.
+**>Privacy:** Nothing you type here is recorded or saved, except for your own eyes, if you choose to download a text file of a particular entry. Please feel free to be as honest with yourself as you’re comfortable!
 
-**Privacy:** nothing you type here is recorded or saved, except for your
-own eyes, if you choose to download a text file of a particular entry.
-Please feel free to be as honest with yourself as you’re comfortable!
+**The prompts:** The tool generates prompts from a list in a text file. These prompts aren’t intended to promote particular viewpoints (though my own subjectivity has led to specific wordings) – hopefully the open-ended questioning and custom rewrite/write-in feature gives enough space to agree or disagree with them. The list of prompts are very non-methodically assembled by my searching “friendly reminder” on Twitter and writing down common statements, slogans, or stances, or attempting to summarise common opinions in clear, succinct language that’s generalisable for a wide audience. There are many potential prompts I’ve missed out on, some I’m not sure how to word, and some existing prompts that can probably be worded better. Understanding the many limits with this broad approach, I welcome (moderated) contributions to the list – please check the [section](#contribute) below! And if you have feedback on how this tool can be improved, please do reach out! This is a tool intended for learning, and making it is very much a learning experience for me.
 
 Inspired partly by [ELIZA](https://en.wikipedia.org/wiki/ELIZA).
 
