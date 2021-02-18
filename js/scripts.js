@@ -14,9 +14,6 @@ const questions = [
   "What do you have questions about?"
 ];
 
-// color scheme
-let isDarkMode;
-
 // load prompts from text file
 let prompts;
 fetch("/prompts.txt")
@@ -27,15 +24,11 @@ fetch("/prompts.txt")
   });
 
 const load = () => {
-  // initial color scheme
-  setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
-
   // event listeners
   document.getElementById("prompt_refresh").addEventListener("click", newPrompt);
   document.getElementById("prompt_custom").addEventListener("click", customPrompt);
   document.getElementById("clear").addEventListener("click", clearLog);
   document.getElementById("save").addEventListener("click", save);
-  document.getElementById("colors").addEventListener("click", () => { setDarkMode(!isDarkMode); });
   
   // initial prompt
   newPrompt();
@@ -193,11 +186,6 @@ ${prompt_span.textContent}`;
   // clear from memory
   a.onclick = () => { setTimeout(() => URL.revokeObjectURL(blob_url), 150); }
   a.click();
-}
-
-const setDarkMode = (newDarkMode) => {
-  isDarkMode = newDarkMode;
-  document.body.classList.toggle("dark", isDarkMode);
 }
 
 window.addEventListener("resize", () => {
