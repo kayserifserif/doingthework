@@ -1,20 +1,20 @@
 /* global */
 
-:root {
+body {
   --bg-color: #fff;
   --text-color: #555;
   --accent-color: #007dba;
   --text-secondary-color: #999;
   --font-stack: "Arimo", sans-serif;
 }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  /* @media (prefers-color-scheme: dark) { */
+    body.dark {
       --bg-color: #172126;
       --text-color: #ccc;
       --accent-color: #3aaae1;
       --text-secondary-color: #a4a4a4;
     }
-  }
+  /* } */
 
 *,
 *::before,
