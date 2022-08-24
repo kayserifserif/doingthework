@@ -1,5 +1,7 @@
 # Doing the Work
 
+![An input field asking, "How do you feel?"](documentation/cover.png)
+
 ## About this tool
 
 It can be difficult to do the work to untangle the complex feelings and thoughts we have about issues in our society. When talking to others, the conversation can be unproductive, and when thinking in private, it can be difficult to collect scattered thoughts. This tool hopes to help facilitate that emotional and intellectual work by meeting you where you are in sorting through your thoughts.
